@@ -1,0 +1,12 @@
+<?php if(is_array($this->options) && count($this->options)>0): ?>
+
+<select id="ctrl_<?php echo $this->urlparam; ?>" class="select<?php echo $this->submit ? ' submitonchange' : ''; ?>" name="<?php echo $this->urlparam; ?>">
+<?php foreach($this->options as $option): ?>
+	<?php
+		$label = $option['value'] . (($this->showCount && $this->count[$option['key']]) ? ' ('. $this->count[$option['key']] .')' : '');
+		echo sprintf('<option %s value="%s">%s</option>', ($option['active'] ? ' selected=""':''), $option['key'], $label);
+	?>
+<?php endforeach; ?>
+</select>
+
+<?php endif; ?>
